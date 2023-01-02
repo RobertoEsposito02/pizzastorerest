@@ -14,4 +14,6 @@ public interface UtenteService {
 	public void inserisciNuovo(Utente utenteInstance);
 
 	public void rimuovi(Long idToRemove);
+	
+	public Utente findByUsername(String username);
 }

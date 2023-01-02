@@ -38,5 +38,10 @@ public class UtenteServiceImpl implements UtenteService{
 	public void rimuovi(Long idToRemove) {
 		utenteRepository.deleteById(idToRemove);
 	}
+
+	@Override
+	public Utente findByUsername(String username) {
+		return utenteRepository.findByUsername(username).orElse(null);
+	}
 	
 }
