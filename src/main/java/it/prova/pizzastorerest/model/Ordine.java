@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -46,6 +47,7 @@ public class Ordine {
 	
 	@Builder.Default
 	@ManyToMany
+	@JoinTable(name = "pizza_ordine", joinColumns = @JoinColumn(name = "pizza_id", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ordine_id", referencedColumnName = "ID"))
 	private List<Pizza> pizze = new ArrayList<>();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
