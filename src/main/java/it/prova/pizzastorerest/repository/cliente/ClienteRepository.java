@@ -1,4 +1,4 @@
-package it.prova.pizzastorerest.repository;
+package it.prova.pizzastorerest.repository.cliente;
 
 import org.springframework.data.repository.CrudRepository;
 
