@@ -3,10 +3,12 @@ package it.prova.pizzastorerest.service.cliente;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import it.prova.pizzastorerest.model.Cliente;
 import it.prova.pizzastorerest.repository.cliente.ClienteRepository;
 
+@Service
 public class ClienteServiceImpl implements ClienteService{
 
 	@Autowired
