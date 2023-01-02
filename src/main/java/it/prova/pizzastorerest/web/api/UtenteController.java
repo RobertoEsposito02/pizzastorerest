@@ -1,11 +1,14 @@
 package it.prova.pizzastorerest.web.api;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.prova.pizzastorerest.dto.utente.UtenteDTO;
 import it.prova.pizzastorerest.model.Utente;
+import it.prova.pizzastorerest.security.dto.UtenteInfoJWTResponseDTO;
 import it.prova.pizzastorerest.service.utente.UtenteService;
 import it.prova.pizzastorerest.web.api.exception.IdNotNullForInsertException;
 import it.prova.pizzastorerest.web.api.exception.IdNullForUpdateException;
@@ -35,22 +39,22 @@ public class UtenteController {
 	public String test() {
 		return "OK";
 	}
-//
-//	@GetMapping(value = "/userInfo")
-//	public ResponseEntity<UtenteInfoJWTResponseDTO> getUserInfo() {
-//
-//		// se sono qui significa che sono autenticato quindi devo estrarre le info dal
-//		// contesto
-//		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-//
-//		// estraggo le info dal principal
-//		Utente utenteLoggato = utenteService.findByUsername(username);
-//		List<String> ruoli = utenteLoggato.getRuoli().stream().map(item -> item.getCodice())
-//				.collect(Collectors.toList());
-//
-//		return ResponseEntity.ok(new UtenteInfoJWTResponseDTO(utenteLoggato.getDateCreated(),utenteLoggato.getNome(), utenteLoggato.getCognome(),
-//				utenteLoggato.getUsername(), utenteLoggato.getEmail(), ruoli));
-//	}
+
+	@GetMapping(value = "/userInfo")
+	public ResponseEntity<UtenteInfoJWTResponseDTO> getUserInfo() {
+
+		// se sono qui significa che sono autenticato quindi devo estrarre le info dal
+		// contesto
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		// estraggo le info dal principal
+		Utente utenteLoggato = utenteService.findByUsername(username);
+		List<String> ruoli = utenteLoggato.getRuoli().stream().map(item -> item.getCodice())
+				.collect(Collectors.toList());
+
+		return ResponseEntity.ok(new UtenteInfoJWTResponseDTO(utenteLoggato.getDateCreated(),utenteLoggato.getNome(), utenteLoggato.getCognome(),
+				utenteLoggato.getUsername(), utenteLoggato.getEmail(), ruoli));
+	}
 	
 	@GetMapping
 	public List<UtenteDTO> listAll(){
