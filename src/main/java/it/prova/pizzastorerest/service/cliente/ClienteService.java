@@ -15,4 +15,7 @@ public interface ClienteService {
 
 	public void rimuovi(Long idToRemove);
 
+	public Cliente caricaSingoloElementoEager(Long id);
+	
+	public List<Cliente> findByExample(Cliente example);
 }

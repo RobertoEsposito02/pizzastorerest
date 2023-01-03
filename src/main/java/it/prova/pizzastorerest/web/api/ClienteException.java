@@ -36,7 +36,7 @@ public class ClienteException {
 	
 	@GetMapping("/{id}")
 	public ClienteDTO findById(@PathVariable(required = true) Long id) {
-		Cliente clienteDaCaricare = clienteService.caricaSingoloElemento(id);
+		Cliente clienteDaCaricare = clienteService.caricaSingoloElementoEager(id);
 		if(clienteDaCaricare == null)
 			throw new ClienteNotFoundException("cliente non trovato");
 		
@@ -78,5 +78,10 @@ public class ClienteException {
 			throw new ClienteNotFoundException("cliente non trovato");
 		
 		clienteService.rimuovi(id);
+	}
+	
+	@GetMapping("/search")
+	public List<ClienteDTO> findByExample(@RequestBody ClienteDTO cliente){
+		return ClienteDTO.buildDTOListFromModel(clienteService.findByExample(cliente.buildModelFromDto()));
 	}
 }

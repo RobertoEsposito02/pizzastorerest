@@ -39,4 +39,14 @@ public class ClienteServiceImpl implements ClienteService{
 		clienteRepository.deleteById(idToRemove);
 	}
 
+	@Override
+	public Cliente caricaSingoloElementoEager(Long id) {
+		return clienteRepository.findByIdEager(id).orElse(null);
+	}
+
+	@Override
+	public List<Cliente> findByExample(Cliente example) {
+		return clienteRepository.findByExample(example);
+	}
+
 }
