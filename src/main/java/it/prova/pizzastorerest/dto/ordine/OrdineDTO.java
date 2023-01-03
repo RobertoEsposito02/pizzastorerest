@@ -19,7 +19,7 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 public class OrdineDTO {
-	private long id;
+	private Long id;
 	private LocalDate data;
 	private boolean closed;
 	private String codice;

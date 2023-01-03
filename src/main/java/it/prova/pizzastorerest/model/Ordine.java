@@ -31,7 +31,7 @@ public class Ordine {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private long id;
+	private Long id;
 	@Column(name = "data")
 	private LocalDate data;
 	@Column(name = "closed")
