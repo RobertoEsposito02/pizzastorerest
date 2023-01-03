@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import it.prova.pizzastorerest.model.Pizza;
 
-public interface PizzaRepository extends CrudRepository<Pizza, Long>{
+public interface PizzaRepository extends CrudRepository<Pizza, Long>, CustomPizzaRepository{
 
 }

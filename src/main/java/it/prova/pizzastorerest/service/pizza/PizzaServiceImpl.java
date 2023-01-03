@@ -38,5 +38,10 @@ public class PizzaServiceImpl implements PizzaService{
 	public void rimuovi(Long idToRemove) {
 		pizzaRepository.deleteById(idToRemove);
 	}
+
+	@Override
+	public List<Pizza> findByExample(Pizza example) {
+		return pizzaRepository.findByExample(example);
+	}
 	
 }

@@ -14,4 +14,6 @@ public interface PizzaService{
 	public void inserisciNuovo(Pizza pizzaInstance);
 
 	public void rimuovi(Long idToRemove);
+	
+	public List<Pizza> findByExample(Pizza example);
 }

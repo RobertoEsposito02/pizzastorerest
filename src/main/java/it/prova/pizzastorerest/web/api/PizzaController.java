@@ -84,4 +84,9 @@ public class PizzaController {
 		pizzaService.rimuovi(id);
 	}
 	
+	@GetMapping("/search")
+	public List<PizzaDTO> findByExample(@RequestBody PizzaDTO example){
+		return PizzaDTO.createListaDTOFromModel(pizzaService.findByExample(example.buildModelFromDTO()));
+	}
+	
 }
