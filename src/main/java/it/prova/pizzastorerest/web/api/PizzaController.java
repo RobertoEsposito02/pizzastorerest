@@ -40,7 +40,11 @@ public class PizzaController {
 		if(id == null)
 			throw new PizzaNotFoundException("pizza non trovato");
 		
-		return PizzaDTO.buildDTOFromModel(pizzaService.caricaSingoloElemento(id));
+		Pizza pizzaDaCaricare = pizzaService.caricaSingoloElemento(id);
+		if(pizzaDaCaricare == null)
+			throw new PizzaNotFoundException("pizza non trovata");
+		
+		return PizzaDTO.buildDTOFromModel(pizzaDaCaricare);
 	}
 	
 	@PutMapping
