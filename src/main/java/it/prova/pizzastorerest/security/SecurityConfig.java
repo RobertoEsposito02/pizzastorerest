@@ -44,13 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  				
 				.authorizeHttpRequests() 
 				.antMatchers("/api/auth/login").permitAll()
-				.antMatchers("/api/tavolo/cercaTavolo").hasAnyRole("ADMIN", "SPECIAL_PLAYER", "PLAYER")
-				.antMatchers("/api/tavolo/cercaTavoliCreatiDaMe").hasAnyRole("ADMIN", "SPECIAL_PLAYER")
-				.antMatchers("/api/tavolo/**").hasAnyRole("ADMIN", "SPECIAL_PLAYER")
 				.antMatchers("/api/utente/userInfo").authenticated()
-				.antMatchers("/api/utente/aggiornaCredito/**").authenticated()
 				.antMatchers("/api/utente/**").hasRole("ADMIN")
-				.antMatchers("/api/play/**").authenticated()
 				.antMatchers("/**").hasAnyRole("ADMIN", "SPECIAL_PLAYER", "PLAYER")
 				// .antMatchers("/anonymous*").anonymous()
 				.anyRequest().authenticated()
