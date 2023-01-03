@@ -39,4 +39,14 @@ public class OrdineServiceImpl implements OrdineService{
 		ordineRepository.deleteById(idToRemove);
 	}
 
+	@Override
+	public List<Ordine> findByExample(Ordine example) {
+		return ordineRepository.findByExample(example);
+	}
+
+	@Override
+	public Ordine caricaSingoloElementoConPizze(Long id) {
+		return ordineRepository.findByIdConPizze(id).orElse(null);
+	}
+
 }

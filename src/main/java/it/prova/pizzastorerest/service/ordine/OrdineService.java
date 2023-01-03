@@ -14,4 +14,8 @@ public interface OrdineService{
 	public void inserisciNuovo(Ordine ordineInstance);
 
 	public void rimuovi(Long idToRemove);
+	
+	public List<Ordine> findByExample(Ordine example);
+	
+	public Ordine caricaSingoloElementoConPizze(Long id);
 }

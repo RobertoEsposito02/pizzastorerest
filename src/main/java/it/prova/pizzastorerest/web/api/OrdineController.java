@@ -79,4 +79,9 @@ public class OrdineController {
 		
 		ordineService.rimuovi(id);
 	}
+	
+	@GetMapping("/search")
+	public List<OrdineDTO> findByExample(@RequestBody OrdineDTO example) {
+		return OrdineDTO.createListDTOFromModel(ordineService.findByExample(example.buildeModelFromDTO()));
+	}
 }
