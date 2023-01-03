@@ -13,7 +13,7 @@ import lombok.Setter;
 @Builder
 @Getter @Setter
 public class ClienteDTO {
-	private long id;
+	private Long id;
 	private String nome;
 	private String cognome;
 	private String inidirizzo;
