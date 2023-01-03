@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 public class PizzaDTO {
-	private long id;
+	private Long id;
 	private String descrizione;
 	private String[] ingredienti;
 	private Integer prezzoBase;
