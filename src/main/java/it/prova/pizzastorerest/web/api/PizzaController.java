@@ -47,7 +47,7 @@ public class PizzaController {
 		return PizzaDTO.buildDTOFromModel(pizzaDaCaricare);
 	}
 	
-	@PutMapping
+	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public PizzaDTO insert(@Valid @RequestBody PizzaDTO pizzaDTO) {
 		if(pizzaDTO.getId() != null)
@@ -58,12 +58,16 @@ public class PizzaController {
 		return pizzaDTO;
 	}
 	
-	@PostMapping
+	@PutMapping
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void update(@Valid @RequestBody PizzaDTO pizzaDTO) {
 		if(pizzaDTO.getId() == null)
 			throw new IdNullForUpdateException("impossibile aggiornare un record se non si valorizza il campo id");
 			
+		Pizza pizzaDaAggiornare = pizzaService.caricaSingoloElemento(pizzaDTO.getId());
+		if(pizzaDaAggiornare == null)
+			throw new PizzaNotFoundException("pizza non trovata");
+		
 		pizzaService.aggiorna(pizzaDTO.buildModelFromDTO());
 	}
 	
