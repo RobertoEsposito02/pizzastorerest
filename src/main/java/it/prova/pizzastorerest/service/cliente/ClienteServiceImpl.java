@@ -16,7 +16,7 @@ public class ClienteServiceImpl implements ClienteService{
 	
 	@Override
 	public List<Cliente> listAll() {
-		return (List<Cliente>) clienteRepository.findAll();
+		return clienteRepository.listAll();
 	}
 
 	@Override
@@ -36,7 +36,8 @@ public class ClienteServiceImpl implements ClienteService{
 
 	@Override
 	public void rimuovi(Long idToRemove) {
-		clienteRepository.deleteById(idToRemove);
+		Cliente clienteDaDisattivare = clienteRepository.findById(idToRemove).orElse(null);
+		clienteDaDisattivare.setAttivo(false);
 	}
 
 	@Override

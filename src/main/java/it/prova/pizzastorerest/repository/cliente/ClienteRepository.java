@@ -1,5 +1,6 @@
 package it.prova.pizzastorerest.repository.cliente;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
@@ -11,4 +12,7 @@ public interface ClienteRepository extends CrudRepository<Cliente, Long>, Custom
 	
 	@Query("from Cliente c left join fetch c.ordini o where c.id = :id")
 	Optional<Cliente> findByIdEager(Long id);
+	
+	@Query("from Cliente c where c.attivo = 1")
+	List<Cliente> listAll();
 }
