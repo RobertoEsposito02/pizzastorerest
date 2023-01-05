@@ -1,14 +1,12 @@
 package it.prova.pizzastorerest.dto.utente;
 
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 import it.prova.pizzastorerest.model.Ruolo;
@@ -45,13 +43,8 @@ public class UtenteDTO {
 	private Date dateCreated;
 	private StatoUtente stato;
 	private Long[] ruoliIds;
-	private LocalDate dataRegistrazione;
 	@NotBlank
 	private String email;
-	@Positive
-	private Integer esperienzaAccumulata;
-	@Positive
-	private Integer creditoAccumulato;
 
 	public Utente buildUtenteModel(boolean includeIdRoles) {
 		Utente result = Utente.builder()
@@ -61,9 +54,6 @@ public class UtenteDTO {
 				.nome(nome)
 				.cognome(cognome)
 				.dateCreated(dateCreated)
-				.dataRegistrazione(dataRegistrazione)
-				.esperienzaAccumulata(esperienzaAccumulata)
-				.creditoAccumulato(creditoAccumulato)
 				.email(email)
 				.stato(stato)
 				.build();
@@ -80,9 +70,6 @@ public class UtenteDTO {
 				.username(utenteModel.getUsername())
 				.nome(utenteModel.getNome())
 				.cognome(utenteModel.getCognome())
-				.dataRegistrazione(utenteModel.getDataRegistrazione())
-				.esperienzaAccumulata(utenteModel.getEsperienzaAccumulata())
-				.creditoAccumulato(utenteModel.getCreditoAccumulato())
 				.email(utenteModel.getEmail())
 				.stato(utenteModel.getStato())
 				.build();

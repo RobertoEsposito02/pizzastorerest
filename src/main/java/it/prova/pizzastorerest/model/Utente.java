@@ -1,6 +1,5 @@
 package it.prova.pizzastorerest.model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -44,12 +43,6 @@ public class Utente {
 	private String password;
 	@Column(name = "datecreated")
 	private Date dateCreated;
-	@Column(name = "dataregistrazione")
-	private LocalDate dataRegistrazione;
-	@Column(name = "esperienzaaccumulata")
-	private Integer esperienzaAccumulata;
-	@Column(name = "creditoaccumulato")
-	private Integer creditoAccumulato;
 	@Column(name = "email")
 	private String email;
 	
