@@ -1,10 +1,12 @@
 package it.prova.pizzastorerest.service.utente;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.prova.pizzastorerest.model.StatoUtente;
 import it.prova.pizzastorerest.model.Utente;
 import it.prova.pizzastorerest.repository.utente.UtenteRepository;
 
@@ -31,6 +33,8 @@ public class UtenteServiceImpl implements UtenteService{
 
 	@Override
 	public void inserisciNuovo(Utente utenteInstance) {
+		utenteInstance.setDateCreated(new Date());
+		utenteInstance.setStato(StatoUtente.CREATO);
 		utenteRepository.save(utenteInstance);
 	}
 
