@@ -3,6 +3,8 @@ package it.prova.pizzastorerest.dto.ruolo;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import it.prova.pizzastorerest.model.Ruolo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +15,7 @@ import lombok.Setter;
 @Builder
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RuoloDTO {
 	private Long id;
 	private String descrizione;

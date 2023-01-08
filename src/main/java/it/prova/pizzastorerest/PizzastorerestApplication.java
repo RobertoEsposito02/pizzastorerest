@@ -1,6 +1,5 @@
 package it.prova.pizzastorerest;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +47,9 @@ public class PizzastorerestApplication implements CommandLineRunner{
 				.password("admin")
 				.email("admin@email.com")
 				.build();
-		admin.getRuoli().add(ruoloService.listAll().get(0));
+		admin.getRuoli().add(ruoloService.cercaPerDescrizioneECodice("Administrator", Ruolo.ROLE_ADMIN));
 		utenteServiceInstance.inserisciNuovo(admin);
+		utenteServiceInstance.changeUserAbilitation(admin.getId());
 		
 		String[] ingredientiMargherita = {"farina00","pomodoro","fiordilatte","olioextravergine","basilico"};
 		pizzaServiceInstance.inserisciNuovo(Pizza.builder()

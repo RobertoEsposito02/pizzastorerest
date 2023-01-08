@@ -1,6 +1,5 @@
 package it.prova.pizzastorerest.security;
 
-
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;

@@ -31,6 +31,7 @@ public class ClienteServiceImpl implements ClienteService{
 
 	@Override
 	public void inserisciNuovo(Cliente clienteInstance) {
+		clienteInstance.setAttivo(true);
 		clienteRepository.save(clienteInstance);
 	}
 

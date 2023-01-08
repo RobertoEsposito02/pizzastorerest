@@ -39,4 +39,7 @@ public class RuoloServiceImpl implements RuoloService{
 		ruoloRepository.deleteById(idToRemove);;
 	}
 
+	public Ruolo cercaPerDescrizioneECodice(String descrizione, String codice) {
+		return ruoloRepository.findByDescrizioneAndCodice(descrizione, codice);
+	}
 }

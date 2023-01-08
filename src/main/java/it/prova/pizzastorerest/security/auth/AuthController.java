@@ -1,6 +1,5 @@
 package it.prova.pizzastorerest.security.auth;
 
-
 import java.util.Collections;
 import java.util.Map;
 
@@ -22,7 +21,7 @@ public class AuthController {
 
 	@Autowired
 	private JWTUtil jwtUtil;
-	@Autowired	
+	@Autowired
 	private AuthenticationManager authManager;
 
 	@PostMapping("/login")

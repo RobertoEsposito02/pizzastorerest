@@ -1,6 +1,5 @@
 package it.prova.pizzastorerest.security;
 
-
 import java.util.Collection;
 
 import javax.transaction.Transactional;

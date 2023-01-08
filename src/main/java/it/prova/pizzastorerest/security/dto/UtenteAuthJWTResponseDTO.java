@@ -1,6 +1,5 @@
 package it.prova.pizzastorerest.security.dto;
 
-
 import java.util.List;
 
 public class UtenteAuthJWTResponseDTO {

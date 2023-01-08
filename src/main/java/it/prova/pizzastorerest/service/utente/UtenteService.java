@@ -16,4 +16,6 @@ public interface UtenteService {
 	public void rimuovi(Long idToRemove);
 	
 	public Utente findByUsername(String username);
+	
+	public void changeUserAbilitation(Long utenteInstanceId);
 }

@@ -6,12 +6,15 @@ import java.util.stream.Collectors;
 
 import it.prova.pizzastorerest.model.Cliente;
 import it.prova.pizzastorerest.model.Ordine;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Builder
 @Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
 public class ClienteDTO {
 	private Long id;
 	private String nome;

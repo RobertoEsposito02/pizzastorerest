@@ -52,7 +52,7 @@ public class UtenteController {
 		List<String> ruoli = utenteLoggato.getRuoli().stream().map(item -> item.getCodice())
 				.collect(Collectors.toList());
 
-		return ResponseEntity.ok(new UtenteInfoJWTResponseDTO(utenteLoggato.getDateCreated(),utenteLoggato.getNome(), utenteLoggato.getCognome(),
+		return ResponseEntity.ok(new UtenteInfoJWTResponseDTO(utenteLoggato.getNome(), utenteLoggato.getCognome(),
 				utenteLoggato.getUsername(), utenteLoggato.getEmail(), ruoli));
 	}
 	

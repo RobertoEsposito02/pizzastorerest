@@ -1,7 +1,5 @@
 package it.prova.pizzastorerest.security.dto;
 
-
-import java.util.Date;
 import java.util.List;
 
 public class UtenteInfoJWTResponseDTO {
@@ -11,15 +9,13 @@ public class UtenteInfoJWTResponseDTO {
 	private String type = "Bearer";
 	private String username;
 	private String email;
-	private Date dateCreated;
 	private List<String> roles;
 
-	public UtenteInfoJWTResponseDTO(Date dateCreated,String nome, String cognome, String username, String email, List<String> roles) {
+	public UtenteInfoJWTResponseDTO(String nome, String cognome, String username, String email, List<String> roles) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.username = username;
 		this.email = email;
-		this.dateCreated = dateCreated;
 		this.roles = roles;
 	}
 
@@ -66,14 +62,4 @@ public class UtenteInfoJWTResponseDTO {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-
-	public Date getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(Date dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-	
-	
 }

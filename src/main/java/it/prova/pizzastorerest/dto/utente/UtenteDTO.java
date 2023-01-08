@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import it.prova.pizzastorerest.model.Ruolo;
 import it.prova.pizzastorerest.model.StatoUtente;
 import it.prova.pizzastorerest.model.Utente;
@@ -21,6 +23,7 @@ import lombok.Setter;
 @Builder
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UtenteDTO {
 
 	private Long id;
